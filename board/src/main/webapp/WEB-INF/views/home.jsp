@@ -20,37 +20,40 @@
 
 </head>
 <body>
-	<h1>Hello world!</h1>
+	<div class="container">
+		<h1>Hello world!</h1>
 
-	<P>The time on the server is ${serverTime}.</P>
-	<!-- <p><a href="/board/list">게시물 목록</a></p> -->
-	<p>
-		<a href="/board/listPageSearch?num=1">게시물 목록</a>
-	</p>
-	<p>
-		<a href="/board/write">게시물 작성</a>
-	</p>
+		<P>The time on the server is ${serverTime}.</P>
+		<!-- <p><a href="/board/list">게시물 목록</a></p> -->
+		<p>
+			<a href="/board/listPageSearch?num=1">リスト</a>
+		</p>
+		<p>
+			<a href="/board/write">掲示物作成</a>
+		</p>
 
-	<c:if test="${member == null}">
-		<form method="post" action="/member/login">
-			<div>
-				<label>ID</label> <input type="text" name="userId" />
+		<c:if test="${member == null}">
+			<form method="post" action="/member/login">
+				
+				<div>
+					<label class="sr-only">ID</label> <input type="text" name="userId" class="form-control" placeholder="id" required />
 
-			</div>
-			<div>
-				<label>Password</label> <input type="password" name="userPass" />
-			</div>
-			<div>
-				<button type="submit" class="btn btn-success">로그인</button>
-			</div>
-			<div>
-				<a href="/member/register" class="btn btn-warning">회원가입</a>
-			</div>
-		</form>
-	</c:if>
-	<c:if test="${msg==false}">
-		<p style="color: #f00">로그인 정보를 확인후 다시 로그인해주세요</p>
-		
-	</c:if>
+				</div>
+				<div>
+					<label class="sr-only">Password</label> <input type="password" name="userPass"   class="form-control" placeholder="Password" required/>
+				</div>
+				<div>
+					<button type="submit" class="btn btn-success btn-block">ログイン</button>
+				</div>
+				<div>
+					<a href="/member/register" class="btn btn-warning btn-block" >社員登録</a>
+				</div>
+			</form>
+		</c:if>
+		<c:if test="${msg==false}">
+			<p style="color: #f00">ログイン情報を確認してください。</p>
+
+		</c:if>
+	</div>
 </body>
 </html>
